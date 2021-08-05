@@ -1,5 +1,15 @@
 <script lang="ts">
-  import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader } from "sveltestrap";
+  import {
+    Button,
+    Form,
+    FormGroup,
+    Input,
+    Label,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+  } from "sveltestrap";
 
   import { Sound, SoundType } from "./Sound";
 
@@ -59,7 +69,13 @@
       </FormGroup>
       <FormGroup>
         <Label for="displayNameInput">Display Name</Label>
-        <Input type="text" bind:value={fileName} id="displayNameInput" valid={nameValid} invalid={!nameValid} />
+        <Input
+          type="text"
+          bind:value={fileName}
+          id="displayNameInput"
+          valid={nameValid}
+          invalid={!nameValid}
+        />
       </FormGroup>
     </Form>
   </ModalBody>
