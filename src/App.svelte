@@ -20,8 +20,8 @@
 
     display: grid;
     grid-gap: 1vw;
-    grid-template-areas:
-      "m a"
-      "e e";
+    grid-template:
+      "m a" 1fr
+      "e e" 1fr / 1fr 1fr;
   }
 </style>
