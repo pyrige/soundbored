@@ -33,16 +33,14 @@ export class Sound implements ISound {
 
   /**
    * Load Sounds from the IndexedDB
-   * @param type is an optional filter for the Sound's type
-   * @returns
+   * @param type is the type of Sound to load
+   * @returns an Array of Sounds of the specified type
    **/
-  static async load(type?: SoundType): Promise<Array<Sound>> {
+  static async load(type: SoundType): Promise<Array<Sound>> {
     const db = new SoundboredDatabase();
     db.sounds.mapToClass(Sound);
 
-    const data =
-      type === undefined ? db.sounds : db.sounds.where("type").equals(type);
-    return data.toArray();
+    return db.sounds.where("type").equals(type).sortBy("name");
   }
 
   /**
