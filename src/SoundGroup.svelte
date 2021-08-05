@@ -1,7 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import { Button, Card, CardBody, CardHeader, CardText, CardTitle, Icon } from "sveltestrap";
+  import {
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    CardText,
+    CardTitle,
+    Icon,
+  } from "sveltestrap";
 
   import SoundControl from "./SoundControl.svelte";
   import SoundUpload from "./SoundUpload.svelte";
@@ -36,14 +44,18 @@
       </div>
     </CardTitle>
   </CardHeader>
-  <CardBody>
+  <CardBody style="overflow-y: auto;">
     <CardText>
       <div class="sound-group">
         {#each sounds as sound (sound.id)}
           <SoundControl {sound} on:deleted={soundsChanged} />
         {/each}
       </div>
-      <SoundUpload bind:isOpen={uploadOpen} {soundType} on:uploaded={soundsChanged} />
+      <SoundUpload
+        bind:isOpen={uploadOpen}
+        {soundType}
+        on:uploaded={soundsChanged}
+      />
     </CardText>
   </CardBody>
 </Card>
