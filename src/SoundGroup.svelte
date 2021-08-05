@@ -46,9 +46,13 @@
   </CardHeader>
   <CardBody style="overflow-y: auto;">
     <CardText>
-      <div class="sound-group">
+      <div class={soundType == SoundType.Effect ? "sound-tiles" : "sound-list"}>
         {#each sounds as sound (sound.id)}
-          <SoundControl {sound} on:deleted={soundsChanged} />
+          <SoundControl
+            {sound}
+            tile={soundType == SoundType.Effect}
+            on:deleted={soundsChanged}
+          />
         {/each}
       </div>
       <SoundUpload
@@ -66,7 +70,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .sound-group {
+  .sound-list {
     display: grid;
     grid-gap: 5px;
     grid-template-columns:
@@ -75,5 +79,11 @@
       minmax(min-content, max-content);
     align-items: center;
     justify-items: end;
+  }
+  .sound-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-start;
   }
 </style>
