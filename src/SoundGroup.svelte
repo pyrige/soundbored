@@ -6,7 +6,6 @@
     Card,
     CardBody,
     CardHeader,
-    CardText,
     CardTitle,
     Icon,
   } from "sveltestrap";
