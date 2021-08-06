@@ -52,7 +52,7 @@
   };
 </script>
 
-<Modal {isOpen} {toggle}>
+<Modal {isOpen} {toggle} backdrop="static">
   <ModalHeader {toggle}>Add new {SoundType[soundType]}</ModalHeader>
   <ModalBody>
     <Form>
