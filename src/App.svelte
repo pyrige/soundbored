@@ -14,14 +14,19 @@
 </main>
 
 <style>
+  :root {
+    --gap: 1vw;
+    --row-height: calc(0.5 * (100vh - 3 * var(--gap)));
+    --col-width: calc(0.5 * (100vw - 3 * var(--gap)));
+  }
   main {
-    padding: 1vw;
     height: 100vh;
+    padding: var(--gap);
 
     display: grid;
-    grid-gap: 1vw;
+    grid-gap: var(--gap);
     grid-template:
-      "m a" 1fr
-      "e e" 1fr / 1fr 1fr;
+      "m a" var(--row-height)
+      "e e" var(--row-height) / var(--col-width) var(--col-width);
   }
 </style>
