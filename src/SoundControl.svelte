@@ -1,13 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import {
-    Button,
-    ButtonGroup,
-    Card,
-    CarouselControl,
-    Icon,
-  } from "sveltestrap";
+  import { Button, ButtonGroup, Card, CardBody, Icon } from "sveltestrap";
 
   import { Sound, SoundType } from "./Sound";
 
@@ -52,33 +46,37 @@
 </script>
 
 {#if tile}
-  <Card body style="flex-grow: 0; align-items: flex-start;">
-    <strong style="white-space: nowrap;">
-      {sound.name}
-      <small>[{duration}]</small>
-    </strong>
+  <Card color="light">
+    <CardBody class="sound-tile">
+      <strong style="white-space: nowrap;">
+        {sound.name}
+        <small>[{duration}]</small>
+      </strong>
 
-    <ButtonGroup>
-      <Button size="sm" color="primary" on:click={playSound}>
-        <Icon name="play" />
-      </Button>
-      <Button
-        size="sm"
-        color={preDelete ? "danger" : "warning"}
-        on:click={deleteSound}
+      <ButtonGroup>
+        <Button size="sm" color="primary" on:click={playSound}>
+          <Icon name="play-fill" />
+          Play
+        </Button>
+        <Button
+          style="flex: 0;"
+          size="sm"
+          color={preDelete ? "danger" : "warning"}
+          on:click={deleteSound}
+        >
+          <Icon name="trash" />
+        </Button>
+      </ButtonGroup>
+
+      <audio
+        bind:this={control}
+        on:loadedmetadata={updateDuration}
+        loop={sound.type != SoundType.Effect}
+        preload="auto"
       >
-        <Icon name="trash" />
-      </Button>
-    </ButtonGroup>
-
-    <audio
-      bind:this={control}
-      on:loadedmetadata={updateDuration}
-      loop={sound.type != SoundType.Effect}
-      preload="auto"
-    >
-      <source src={sound.url} />
-    </audio>
+        <source src={sound.url} />
+      </audio>
+    </CardBody>
   </Card>
 {:else}
   <strong style="white-space: nowrap;">{sound.name}</strong>
@@ -100,5 +98,12 @@
   audio[controls] {
     height: 1.5rem;
     width: 100%;
+  }
+
+  :global(.sound-tile) {
+    padding: 0.5rem !important;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
   }
 </style>
