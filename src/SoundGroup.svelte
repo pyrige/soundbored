@@ -51,34 +51,39 @@
     </CardTitle>
   </CardHeader>
   <CardBody style="overflow-y: auto;">
-    <CardText>
-      <div class={soundType == SoundType.Effect ? "sound-tiles" : "sound-list"}>
-        {#each sounds as sound (sound.id)}
-          <SoundControl
-            {sound}
-            tile={soundType == SoundType.Effect}
-            on:deleted={soundsChanged}
-          />
-        {/each}
-      </div>
-      <SoundUpload
-        bind:isOpen={uploadOpen}
-        {soundType}
-        on:uploaded={soundsChanged}
-      />
-    </CardText>
+    <section
+      class={soundType == SoundType.Effect ? "sound-tiles" : "sound-list"}
+    >
+      {#each sounds as sound (sound.id)}
+        <SoundControl
+          {sound}
+          tile={soundType == SoundType.Effect}
+          on:deleted={soundsChanged}
+        />
+      {/each}
+    </section>
+    <SoundUpload
+      bind:isOpen={uploadOpen}
+      {soundType}
+      on:uploaded={soundsChanged}
+    />
   </CardBody>
 </Card>
 
 <style>
+  :root {
+    --gap: 5px;
+  }
+
   .card-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .sound-list {
+
+  section.sound-list {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: var(--gap);
     grid-template-columns:
       minmax(min-content, max-content)
       auto
@@ -86,10 +91,11 @@
     align-items: center;
     justify-items: end;
   }
-  .sound-tiles {
+
+  section.sound-tiles {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    justify-content: flex-start;
+    gap: var(--gap);
+    justify-content: start;
   }
 </style>
