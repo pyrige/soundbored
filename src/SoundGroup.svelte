@@ -38,8 +38,14 @@
     <CardTitle>
       <div class="card-title">
         <strong>{SoundType[soundType]}</strong>
-        <Button size="sm" color="primary" on:click={() => (uploadOpen = true)}>
-          <Icon name="upload" />
+        <Button
+          outline
+          size="sm"
+          color="primary"
+          on:click={() => (uploadOpen = true)}
+        >
+          <Icon name="plus" />
+          Add Sound
         </Button>
       </div>
     </CardTitle>
