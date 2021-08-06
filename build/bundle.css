@@ -1,4 +1,4 @@
-main.svelte-1chqnxj{padding:1vw;height:100vh;display:grid;grid-gap:1vw;grid-template:"m a" 1fr
-      "e e" 1fr / 1fr 1fr}.card-title.svelte-15nozw7{display:flex;justify-content:space-between;align-items:center}.sound-list.svelte-15nozw7{display:grid;grid-gap:5px;grid-template-columns:minmax(min-content, max-content)
+:root{--gap:1vw;--row-height:calc(0.5 * (100vh - 3 * var(--gap)));--col-width:calc(0.5 * (100vw - 3 * var(--gap)))}main.svelte-c8kl54{height:100vh;padding:var(--gap);display:grid;grid-gap:var(--gap);grid-template:"m a" var(--row-height)
+      "e e" var(--row-height) / var(--col-width) var(--col-width)}.card-title.svelte-15nozw7{display:flex;justify-content:space-between;align-items:center}.sound-list.svelte-15nozw7{display:grid;grid-gap:5px;grid-template-columns:minmax(min-content, max-content)
       auto
       minmax(min-content, max-content);align-items:center;justify-items:end}.sound-tiles.svelte-15nozw7{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-start}.modal-open{overflow:hidden;padding-right:0}.overflow-noscroll{overflow:hidden;padding-right:0px}audio[controls].svelte-1hvhv99{height:25px;width:100%}
