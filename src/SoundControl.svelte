@@ -45,7 +45,7 @@
       style: "unit",
       unit: "second",
       unitDisplay: "narrow",
-      maximumFractionDigits: 3,
+      maximumFractionDigits: 2,
     });
     duration = formatter.format(control.duration);
   };
