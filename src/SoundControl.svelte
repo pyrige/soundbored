@@ -98,7 +98,7 @@
 
 <style>
   audio[controls] {
-    height: 25px;
+    height: 1.5rem;
     width: 100%;
   }
 </style>
